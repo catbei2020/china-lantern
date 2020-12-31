@@ -25,19 +25,19 @@
 
 1. 安装依赖
 
-  ```bash
-    yarn
-  ```
+    ```bash
+      yarn
+    ```
 
 2. 在 `./src/style.scss` 自定义样式，在 `./build/minifier.js` 自定义灯笼文字
 
 3. 构建
 
-  ```bash
-    yarn build
-  ```
-  
-  之后就可以在 `./dist/china-lantern.min.js` 得到你的自定义脚本
+    ```bash
+      yarn build
+    ```
+    
+    之后就可以在 `./dist/china-lantern.min.js` 得到你的自定义脚本
 
 ### 其他
 

@@ -41,10 +41,25 @@
 
 ### 其他
 
-当你发现灯笼大小不合适或者挡住 logo 等关键内容时，可以考虑自行修改灯笼位置的样式重新构建脚本，或使被挡住内容的 `z-index` 大于 `999` ：
+当你发现灯笼大小不合适或者被其他层级高的元素遮挡时，可以考虑自行修改灯笼位置的样式重新构建脚本，或者调整相关内容的 `z-index` 。
+
+挂钩类：`.j-china-lantern`
 
 ```css
-  .logo-class-name {
-    z-index: 1000;
+  /* 灯笼默认的 z-index: 999; */
+
+  /* 提高灯笼的层级 */
+  .j-china-lantern .lantern__warpper {
+    z-index:9999;
+  }
+
+  /* 提高单个灯笼的层级：左灯笼 */
+  .j-china-lantern .lantern__warpper:not(.lantern__secondary) {
+    z-index:9999;
+  }
+
+  /* 提高单个灯笼的层级：右灯笼 */
+  .j-china-lantern .lantern__secondary {
+    z-index:9999;
   }
 ```

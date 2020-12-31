@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production CSS_STATUS=inline node ./build/index.js",
+    "deploy": "node ./build/deploy.js",
     "lint": "eslint --ext .js \"src\"",
     "lint:style": "stylelint \"src/*.{css,scss}\"",
     "prettier": "prettier -c --write \"src/**/*.js\"",

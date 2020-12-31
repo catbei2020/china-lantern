@@ -1,6 +1,6 @@
 {
   "name": "china-lantern",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/china-lantern.cjs.js",
   "browser": "dist/china-lantern.umd.js",
   "module": "dist/china-lantern.esm.js",

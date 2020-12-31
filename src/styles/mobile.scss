@@ -1,0 +1,86 @@
+
+@media (max-width: 460px) {
+  .lantern {
+
+    $parent: &;
+
+    $color-shadow: rgba(250, 108, 0, 1);
+
+    $position-gap: 30px;
+
+    $deg-swing: 8deg;
+
+    // 灯笼
+    $box-width: 50px;
+    $box-height: 40px;
+
+    // 盖子
+    $lib-width: $box-width / 2;
+    $lib-height: 4px;
+
+    // 吊线
+    $line-width: 2px;
+    $line-height: 8px;
+
+    // 尾带
+    $tail-width: 4px;
+    $tail-height: $line-height;
+    $tail-junction-size: $tail-width * 2;
+    $tail-rect-width: $tail-junction-size;
+    $tail-rect-height: $tail-height * 2;
+
+    $font-size: $box-width * 0.27;
+
+    &__warpper {
+      top: $line-height;
+      left: $position-gap;
+
+      &#{$parent}__secondary {
+        left: calc(100% - #{$position-gap + $box-width});
+      }
+    }
+
+    &__box {
+      width: $box-width;
+      height: $box-height;
+      transform-origin: 50% #{-$box-height};
+      box-shadow: -5px 5px 50px -1px $color-shadow;
+
+      &::before,
+      &::after {
+        height: $lib-height;
+        width: $lib-width;
+      }
+    }
+
+    &__line {
+      width: $line-width;
+      height: $line-height;
+    }
+
+    &__circle {
+
+      #{$parent}__text {
+        font-size: $font-size;
+        line-height: $box-height - $lib-height * 0.5;
+      }
+    }
+
+    &__tail {
+      width: $tail-width;
+      height: $tail-height;
+
+      #{$parent}__junction {
+        width: $tail-junction-size;
+        height: $tail-junction-size;
+        transform: translate(-50%, $tail-height * 0.7);
+      }
+
+      #{$parent}__rect {
+        transform: translate(-50%, $tail-height * 0.9);
+        width: $tail-rect-width;
+        height: $tail-rect-height;
+      }
+    }
+  }
+}

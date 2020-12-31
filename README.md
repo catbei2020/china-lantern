@@ -2,7 +2,7 @@
 
 新年新气象，网站中国新年灯笼挂件
 
-*version: 1.0*
+*version: 1.1*
 
 ### 效果
 
@@ -16,7 +16,7 @@
 <body>
 
   <!-- 在页面最后引入 -->
-  <script src="https://cdn.jsdelivr.net/gh/fz6m/china-lantern@1.0/dist/china-lantern.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fz6m/china-lantern@1.1/dist/china-lantern.min.js"></script>
 
 </body>
 ```
@@ -29,7 +29,7 @@
       yarn
     ```
 
-2. 在 `./src/style.scss` 自定义样式，在 `./build/minifier.js` 自定义灯笼文字
+2. 在 `./src/styles` 自定义样式，在 `./build/minifier.js` 自定义灯笼文字
 
 3. 构建
 

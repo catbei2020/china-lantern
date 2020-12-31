@@ -1,4 +1,4 @@
-import './style.scss'
+import './styles/style.scss'
 
 import content from './template/element.min'
 

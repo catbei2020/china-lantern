@@ -1,0 +1,166 @@
+
+.lantern {
+
+  $parent: &;
+
+  $color-background: rgba(216, 0, 15, 0.8);
+  $color-shadow: rgba(250, 108, 0, 1);
+  $color: #dc8f03;
+  $color-deep: #ffa500; // orange
+  $color-linear: linear-gradient(to right, $color, $color-deep, $color, $color-deep, $color);
+
+  $position-gap: 40px;
+
+  $deg-swing: 8deg;
+
+  // 灯笼
+  $box-width: 90px;
+  $box-height: 70px;
+
+  // 盖子
+  $lib-width: $box-width / 2;
+  $lib-height: 8px;
+
+  // 吊线
+  $line-width: 2px;
+  $line-height: 12px;
+
+  // 尾带
+  $tail-width: 4px;
+  $tail-height: $line-height;
+  $tail-junction-size: $tail-width * 2;
+  $tail-rect-width: $tail-junction-size;
+  $tail-rect-height: $tail-height * 2;
+
+  $font-size: $box-width * 0.27;
+
+  &__warpper {
+    position: fixed;
+    top: $line-height;
+    left: $position-gap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 999;
+
+    &#{$parent}__secondary {
+      left: calc(100% - #{$position-gap + $box-width});
+
+      #{$parent}__box {
+        animation-duration: 3s;
+      }
+    }
+  }
+
+  &__box {
+    position: relative;
+    display: inline-block;
+    width: $box-width;
+    height: $box-height;
+    background: $color-background;
+    border-radius: 50% 50%;
+    animation: lantern-swing 3s infinite ease-in-out alternate-reverse;
+    transform-origin: 50% #{-$box-height};
+    box-shadow: -5px 5px 50px 4px $color-shadow;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: $lib-height;
+      width: $lib-width;
+      left: 50%;
+      border: solid 1px $color;
+      background: $color-linear;
+    }
+
+    &::before {
+      top: 0;
+      border-radius: 5px 5px 0 0;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      bottom: 0;
+      border-radius: 0 0 5px 5px;
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  &__line {
+    position: absolute;
+    width: $line-width;
+    height: $line-height;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    background: $color;
+  }
+
+  &__circle {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid $color;
+    box-sizing: border-box;
+
+    #{$parent}__ellipse {
+      width: 50%;
+      height: 100%;
+      margin: 0 auto;
+      border: 2px solid $color;
+      border-radius: 50%;
+    }
+
+    #{$parent}__text {
+      font-family: '华文行楷', 'Microsoft YaHei', sans-serif;
+      font-size: $font-size;
+      color: $color;
+      font-weight: bold;
+      line-height: $box-height - $lib-height * 0.5;
+      text-align: center;
+    }
+  }
+
+  &__tail {
+    position: relative;
+    width: $tail-width;
+    height: $tail-height;
+    margin: 0 auto;
+    animation: lantern-swing 4s infinite ease-in-out alternate-reverse;
+    background: $color-deep;
+    border-radius: 0 0 5px 5px;
+
+    #{$parent}__junction {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: $tail-junction-size;
+      height: $tail-junction-size;
+      transform: translate(-50%, $tail-height * 0.7);
+      background: lighten($color, 2);
+      border-radius: 50%;
+    }
+
+    #{$parent}__rect {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, $tail-height * 0.9);
+      width: $tail-rect-width;
+      height: $tail-rect-height;
+      background: $color-deep;
+      border-radius: 5px 5px 0 5px;
+    }
+  }
+
+  @keyframes lantern-swing {
+    0% {
+      transform: rotate(#{-$deg-swing});
+    }
+
+    100% {
+      transform: rotate(#{$deg-swing});
+    }
+  }
+}
